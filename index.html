@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Dukat Prevoz Tuzla – Prevoz Robe, Selidbe i Kombi Transport BiH</title>
-  <meta name="description" content="Dukat Prevoz Tuzla – brz, siguran i pouzdan prevoz robe, selidbe stanova i kombi transport širom Bosne, Hercegovine i van granica po dogovoru. Pozovite odmah!" />
+  <title>MoveX Prevoz Tuzla – Prevoz Robe, Selidbe i Kombi Transport BiH</title>
+  <!-- FAVICON (logo na tabu) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 80'%3E%3Crect x='10' y='28' width='68' height='38' rx='8' fill='%23f5810a' stroke='%23c8791a' stroke-width='1.5'/%3E%3Crect x='70' y='36' width='24' height='30' rx='6' fill='%23e0a030' stroke='%23c8791a' stroke-width='1.2'/%3E%3Crect x='12' y='32' width='62' height='26' rx='4' fill='%231e2a3a'/%3E%3Ctext x='20' y='54' font-family='Arial' font-weight='800' font-size='12' fill='%23f5b042'%3EMX%3C/text%3E%3Ccircle cx='30' cy='68' r='8' fill='%232c3e50'/%3E%3Ccircle cx='62' cy='68' r='8' fill='%232c3e50'/%3E%3Ccircle cx='86' cy='68' r='8' fill='%232c3e50'/%3E%3C/svg%3E">
+  <meta name="description" content="MoveX Prevoz Tuzla – brz, siguran i pouzdan prevoz robe, selidbe stanova i kombi transport širom Bosne, Hercegovine i van granica. Pozovite odmah!" />
   <meta name="keywords" content="prevoz robe Tuzla, kombi prevoz Tuzla, selidbe Tuzla, transport robe BiH, dostava robe Tuzla, prevoz namještaja Tuzla, medjunarodni prevoz" />
   <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="Dukat Prevoz Tuzla – Prevoz Robe i Selidbe" />
-  <meta property="og:description" content="Brz, siguran i pouzdan prevoz robe, selidbe i kombi transport širom BiH i van granica." />
+  <meta property="og:title" content="MoveX Prevoz Tuzla – Prevoz Robe i Selidbe" />
+  <meta property="og:description" content="Brz, siguran i pouzdan prevoz robe, selidbe i kombi transport širom BiH i šire." />
   <meta name="theme-color" content="#0a1628" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- SAMO JEDAN FONT: Inter (sve osim loga, ali sad i logo koristi Inter) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -58,7 +59,6 @@
       font-size: 1.1rem;
     }
  
-    /* SVI tekstovi, uključujući logo, koriste Inter */
     h1, h2, h3, h4, .step-title, .service-title, .why-feature-title, .reviewer-name, .channel-value, .stat-label, .btn, .tag, .hero-badge, .section-sub, .service-desc, .step-desc, .review-text, .footer-brand p, .nav-links a, .logo-name, .logo-sub, .footer-links li, .footer-copy {
       font-family: 'Inter', sans-serif;
       letter-spacing: -0.01em;
@@ -152,7 +152,6 @@
       line-height: 1.6;
     }
  
-    /* Buttons */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -191,7 +190,6 @@
       transform: translateY(-2px);
     }
  
-    /* navbar */
     #navbar {
       position: fixed;
       top: 0;
@@ -298,6 +296,8 @@
       cursor: pointer;
       background: none;
       border: none;
+      z-index: 1001;
+      position: relative;
     }
  
     #hamburger span {
@@ -316,11 +316,12 @@
       right: 0;
       bottom: 0;
       background: var(--navy);
-      z-index: 998;
+      z-index: 1000;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 28px;
+      pointer-events: auto;
     }
  
     #mobile-menu.open {
@@ -333,10 +334,15 @@
       font-weight: 800;
       color: var(--white);
       text-decoration: none;
+      padding: 12px 20px;
+      transition: var(--transition);
+      pointer-events: auto;
+      cursor: pointer;
     }
  
     #mobile-menu a:hover {
       color: var(--orange);
+      transform: scale(1.05);
     }
  
     #close-menu {
@@ -348,9 +354,12 @@
       cursor: pointer;
       color: var(--white);
       font-size: 2rem;
+      z-index: 1002;
+      pointer-events: auto;
+      padding: 12px;
+      line-height: 1;
     }
  
-    /* hero */
     #hero {
       min-height: 100vh;
       background: var(--navy);
@@ -378,6 +387,7 @@
       z-index: 2;
       max-width: 700px;
       padding-top: 100px;
+      padding-bottom: 30px;
     }
  
     .hero-badge {
@@ -439,11 +449,46 @@
       color: var(--white);
       margin-bottom: 20px;
       font-weight: 800;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
     }
  
     .hero-title .line-orange {
       color: var(--orange);
-      display: block;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+ 
+    /* JOŠ VEĆI LOGO: desktop 80px, mobile 64px */
+    .inline-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: middle;
+      width: 80px;
+      height: 80px;
+      margin-left: 12px;
+    }
+    .inline-logo svg {
+      width: 80px;
+      height: 80px;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+    }
+    @media (max-width: 640px) {
+      .inline-logo {
+        width: 64px;
+        height: 64px;
+      }
+      .inline-logo svg {
+        width: 64px;
+        height: 64px;
+      }
+      .hero-title {
+        gap: 4px;
+      }
     }
  
     .hero-sub {
@@ -516,13 +561,13 @@
  
     .hero-scroll {
       position: absolute;
-      bottom: 32px;
-      left: 50%;
-      transform: translateX(-50%);
+      bottom: 24px;
+      left: 28px;
+      right: auto;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 8px;
+      align-items: flex-start;
+      gap: 6px;
       cursor: pointer;
       z-index: 10;
       transition: var(--transition);
@@ -530,22 +575,22 @@
  
     .hero-scroll span {
       color: rgba(255, 255, 255, 0.6);
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       font-weight: 500;
     }
  
     .scroll-arrow {
-      width: 44px;
-      height: 44px;
+      width: 40px;
+      height: 40px;
       border: 1.5px solid rgba(255, 255, 255, 0.4);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: var(--transition);
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       color: rgba(255, 255, 255, 0.7);
     }
  
@@ -555,7 +600,6 @@
       transform: translateY(4px);
     }
  
-    /* usluge */
     #usluge {
       background: var(--white);
       scroll-margin-top: 80px;
@@ -643,7 +687,6 @@
       line-height: 1.6;
     }
  
-    /* zašto mi */
     #zasto {
       background: var(--navy);
       position: relative;
@@ -766,7 +809,6 @@
       flex-shrink: 0;
     }
  
-    /* kako radimo */
     #kako {
       background: var(--offwhite);
     }
@@ -774,6 +816,12 @@
     .steps-header {
       text-align: center;
       margin-bottom: 60px;
+    }
+ 
+    .steps-header .section-sub {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
     }
  
     .steps-track {
@@ -832,7 +880,6 @@
       line-height: 1.6;
     }
  
-    /* recenzije - sa otvarajućim i zatvarajućim narandžastim navodnicima */
     #recenzije {
       background: var(--white);
     }
@@ -886,7 +933,6 @@
       display: inline-block;
     }
  
-    /* Otvarajući i zatvarajući navodnici u narandžastoj boji */
     .review-text::before {
       content: "“";
       font-size: 2rem;
@@ -940,7 +986,6 @@
       color: var(--gray);
     }
  
-    /* kontakt */
     #kontakt {
       background: var(--navy);
       position: relative;
@@ -1000,8 +1045,8 @@
       background: rgba(245, 129, 10, 0.2);
     }
  
-    .channel-whatsapp .channel-icon {
-      background: rgba(37, 211, 102, 0.2);
+    .channel-facebook .channel-icon {
+      background: rgba(24, 119, 242, 0.2);
     }
  
     .channel-info {
@@ -1075,6 +1120,12 @@
       resize: vertical;
     }
  
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+ 
     .form-submit {
       width: 100%;
       padding: 16px;
@@ -1121,7 +1172,6 @@
       border: none;
     }
  
-    /* footer - sve kontakt linije iste veličine */
     footer {
       background: #060e1c;
       padding: 60px 0 32px;
@@ -1164,12 +1214,6 @@
       color: rgba(255, 255, 255, 0.5);
       text-decoration: none;
       transition: var(--transition);
-    }
- 
-    /* Posebno osiguravamo da sve stavke u footer kontaktu imaju identičnu veličinu */
-    .footer-col:last-child .footer-links li {
-      font-size: 0.9rem;
-      line-height: 1.5;
     }
  
     .footer-links a:hover {
@@ -1221,10 +1265,6 @@
  
     .float-phone {
       background: var(--orange);
-    }
- 
-    .float-whatsapp {
-      background: #25d366;
     }
  
     .float-btn:hover {
@@ -1312,6 +1352,14 @@
         padding: 8px 18px;
         gap: 8px;
       }
+      .hero-scroll {
+        left: 16px;
+        bottom: 16px;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
     }
  
     @media (max-width: 480px) {
@@ -1336,7 +1384,7 @@
             <rect x="10" y="28" width="68" height="38" rx="8" fill="#F5B042" stroke="#C8791A" stroke-width="1.5" />
             <rect x="70" y="36" width="24" height="30" rx="6" fill="#E0A030" stroke="#C8791A" stroke-width="1.2" />
             <rect x="12" y="32" width="62" height="26" rx="4" fill="#1E2A3A" />
-            <text x="28" y="52" font-family="'Inter', sans-serif" font-weight="800" font-size="15" fill="#F5B042">DUKAT</text>
+            <text x="20" y="54" font-family="'Inter', sans-serif" font-weight="800" font-size="12" fill="#F5B042">MOVEX</text>
             <circle cx="30" cy="68" r="8" fill="#2C3E50" />
             <circle cx="62" cy="68" r="8" fill="#2C3E50" />
             <circle cx="86" cy="68" r="8" fill="#2C3E50" />
@@ -1344,7 +1392,7 @@
           </svg>
         </div>
         <div class="logo-text">
-          <span class="logo-name">Dukat Prevoz</span>
+          <span class="logo-name">MoveX Prevoz</span>
           <span class="logo-sub">Tuzla, BiH</span>
         </div>
       </a>
@@ -1379,21 +1427,37 @@
   <div class="hero-grid"></div>
   <div class="container">
     <div class="hero-content">
-      <div class="hero-badge"><span class="dot"></span> Tuzla • Cijela BiH • Van granica (dogovor)</div>
-      <h1 class="hero-title">Dukat Prevoz <span class="line-orange">Tuzla</span></h1>
-      <p class="hero-sub">Brz, siguran i pouzdan prevoz robe, selidbe i kombi transport. Radimo i van granica BiH – sve po dogovoru. Vaša roba u sigurnim rukama.</p>
+      <div class="hero-badge"><span class="dot"></span> Tuzla  •  Cijela BiH  •  Inostranstvo</div>
+      <h1 class="hero-title">
+        MoveX Prevoz 
+        <span class="line-orange">
+          Tuzla
+          <span class="inline-logo">
+            <svg viewBox="0 0 100 80" fill="none">
+              <rect x="10" y="28" width="68" height="38" rx="8" fill="#F5B042" stroke="#C8791A" stroke-width="1.5" />
+              <rect x="70" y="36" width="24" height="30" rx="6" fill="#E0A030" stroke="#C8791A" stroke-width="1.2" />
+              <rect x="12" y="32" width="62" height="26" rx="4" fill="#1E2A3A" />
+              <text x="20" y="54" font-family="'Inter', sans-serif" font-weight="800" font-size="12" fill="#F5B042">MOVEX</text>
+              <circle cx="30" cy="68" r="8" fill="#2C3E50" />
+              <circle cx="62" cy="68" r="8" fill="#2C3E50" />
+              <circle cx="86" cy="68" r="8" fill="#2C3E50" />
+            </svg>
+          </span>
+        </span>
+      </h1>
+      <p class="hero-sub">Brz, siguran i provjeren prevoznik. Vaš pouzdan partner u transportu. Od vrata do vrata, bez brige i odlaganja.</p>
       <div class="hero-buttons">
         <a href="tel:+38762405658" class="btn btn-primary">📞 Pozovite odmah</a>
         <a href="#kontakt" class="btn btn-outline">✉️ Zatražite ponudu</a>
       </div>
       <div class="hero-stats">
         <div class="stat">
-          <div class="stat-num">✓ Zadovoljni klijenti</div>
+          <div class="stat-num">Zadovoljni klijenti</div>
           <div class="stat-label">Povjerenje i kvalitet</div>
         </div>
         <div class="stat">
-          <div class="stat-num">7<span>/7</span></div>
-          <div class="stat-label">Dana dostupni</div>
+          <div class="stat-num">ponedjeljak - nedelja</div>
+          <div class="stat-label">Dostupni</div>
         </div>
         <div class="stat">
           <div class="stat-num">5<span>★</span></div>
@@ -1403,7 +1467,7 @@
     </div>
   </div>
   <div class="hero-scroll" id="scrollHint">
-    <span>Skrolajte dole</span>
+    <span>SKROLAJTE DOLE</span>
     <div class="scroll-arrow">↓</div>
   </div>
 </section>
@@ -1421,7 +1485,7 @@
       <div class="service-card reveal"><div class="service-icon">📦</div><h3 class="service-title">Dostava robe</h3><p class="service-desc">Brza i pouzdana dostava za privatne klijente i firme širom BiH.</p></div>
       <div class="service-card reveal"><div class="service-icon">🧱</div><h3 class="service-title">Transport građevinskog materijala</h3><p class="service-desc">Prevoz cigle, cementa, pločica, sanitarija i ostalog materijala.</p></div>
       <div class="service-card reveal"><div class="service-icon">⚡</div><h3 class="service-title">Hitne dostave</h3><p class="service-desc">Reagujemo brzo – hitna dostava u Tuzli i okolini za nekoliko sati.</p></div>
-      <div class="service-card reveal"><div class="service-icon">🚐</div><h3 class="service-title">Kombi prevoz širom BiH i van</h3><p class="service-desc">Prevoz do bilo kojeg mjesta u BiH, a po potrebi i van granice (dogovor).</p></div>
+      <div class="service-card reveal"><div class="service-icon">🚐</div><h3 class="service-title">Kombi prevoz širom BiH i u inostranstvu</h3><p class="service-desc">Prevoz do bilo kojeg mjesta u BiH, a po potrebi i van granice.</p></div>
     </div>
   </div>
 </section>
@@ -1432,7 +1496,7 @@
       <div class="why-left reveal">
         <div class="tag">Zašto odabrati nas</div>
         <h2 class="section-title">Povjerenje koje se<br /><span>zarađuje svakim prevozom</span></h2>
-        <p class="section-sub">Godinama gradimo reputaciju pouzdanog partnera. Radimo i van granica BiH – uvijek po dogovoru i uz fer cijene.</p>
+        <p class="section-sub">Godinama gradimo reputaciju pouzdanog partnera. Uvijek uz dogovor i fer uslugu. Cilj nam je dugoročan odnos s klijentima, ne jednokratan posao.</p>
         <div class="why-features">
           <div class="why-feature"><div class="why-feature-icon">⚡</div><div class="why-feature-title">Brza reakcija</div><div class="why-feature-desc">Odgovaramo u roku 30 min</div></div>
           <div class="why-feature"><div class="why-feature-icon">🛡️</div><div class="why-feature-title">Siguran transport</div><div class="why-feature-desc">Roba zaštićena do isporuke</div></div>
@@ -1484,8 +1548,8 @@
     </div>
     <div class="reviews-grid">
       <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Odlična usluga! Selidba bez stresa, ekipa profesionalna i tačna. Sve pohvale.</p><div class="reviewer"><div class="reviewer-avatar">AH</div><div><div class="reviewer-name">Amela H.</div><div class="reviewer-location">Tuzla</div></div></div></div>
-      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Hitna dostava za firmu, stigli za sat vremena. Pouzdani, korektni, preporučujem!</p><div class="reviewer"><div class="reviewer-avatar">MK</div><div><div class="reviewer-name">Mirsad K.</div><div class="reviewer-location">Lukavac</div></div></div></div>
-      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Prevoz namještaja Tuzla–Sarajevo, sve neoštećeno. Ljubazan vozač, korektna cijena.</p><div class="reviewer"><div class="reviewer-avatar">SM</div><div><div class="reviewer-name">Selma M.</div><div class="reviewer-location">Sarajevo</div></div></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Radili su mi hitnu dostavu za firmu. Ažurni, korektni, preporučujem!</p><div class="reviewer"><div class="reviewer-avatar">MK</div><div><div class="reviewer-name">Mirsad K.</div><div class="reviewer-location">Lukavac</div></div></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Prevoz namještaja Tuzla–Sarajevo, sve neoštećeno, bez problema. Ljubazan vozač, korektna cijena.</p><div class="reviewer"><div class="reviewer-avatar">SM</div><div><div class="reviewer-name">Selma M.</div><div class="reviewer-location">Sarajevo</div></div></div></div>
     </div>
   </div>
 </section>
@@ -1496,17 +1560,33 @@
       <div class="contact-left reveal">
         <div class="tag">Kontakt</div>
         <h2 class="section-title">Zatražite ponudu<br /><span>odmah danas</span></h2>
-        <p class="section-sub">Odgovaramo brzo, radimo 7/7. Moguć i prevoz van granica – sve po dogovoru.</p>
+        <p class="section-sub">Odgovaramo brzo, radimo ponedjeljak - nedelja. Moguć i prevoz van granica.</p>
         <div class="contact-channels">
           <a href="tel:+38762405658" class="channel channel-phone"><div class="channel-icon">📞</div><div class="channel-info"><span class="channel-label">Telefon</span><span class="channel-value">+387 62 405 658</span></div></a>
-          <a href="https://wa.me/38762405658" target="_blank" class="channel channel-whatsapp"><div class="channel-icon">💬</div><div class="channel-info"><span class="channel-label">WhatsApp</span><span class="channel-value">+387 62 405 658</span></div></a>
+          <a href="https://facebook.com" target="_blank" class="channel channel-facebook"><div class="channel-icon">📘</div><div class="channel-info"><span class="channel-label">Facebook</span><span class="channel-value">MoveX Prevoz Tuzla</span></div></a>
         </div>
       </div>
       <div class="contact-form-wrap reveal">
         <div class="form-title">Zatražite besplatnu ponudu</div>
         <form id="contact-form">
-          <div class="form-group"><label class="form-label">Vaš broj telefona *</label><input type="tel" id="phone" name="phone" class="form-control" placeholder="+387 62 405 658" required></div>
-          <div class="form-group"><label class="form-label">Poruka / opis usluge *</label><textarea id="message" name="message" class="form-control" placeholder="Odakle, kuda, šta prevesti... (npr. selidba iz Tuzle u Njemačku)" required></textarea></div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Ime *</label>
+              <input type="text" id="first-name" name="first-name" class="form-control" placeholder="Vaše ime" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Prezime *</label>
+              <input type="text" id="last-name" name="last-name" class="form-control" placeholder="Vaše prezime" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Vaš broj telefona *</label>
+            <input type="tel" id="phone" name="phone" class="form-control" placeholder="+387 XX XXX XXX" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Poruka / opis usluge *</label>
+            <textarea id="message" name="message" class="form-control" placeholder="Odakle, kuda, šta prevesti... (npr. selidba iz Tuzle u Njemačku)" required></textarea>
+          </div>
           <button type="submit" class="form-submit">Pošaljite upit na WhatsApp ✉️</button>
           <div class="form-success" id="form-success">✅ Hvala! Otvorit će se WhatsApp. Pošaljite poruku i odgovoramo odmah.</div>
         </form>
@@ -1525,49 +1605,88 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <a href="#" class="logo">
-          <div class="logo-icon"><svg viewBox="0 0 100 80" width="48" height="48"><rect x="10" y="28" width="68" height="38" rx="8" fill="#F5B042"/><rect x="70" y="36" width="24" height="30" rx="6" fill="#E0A030"/><rect x="12" y="32" width="62" height="26" rx="4" fill="#1E2A3A"/><text x="28" y="52" font-family="'Inter', sans-serif" font-weight="800" font-size="15" fill="#F5B042">DUKAT</text><circle cx="30" cy="68" r="8" fill="#2C3E50"/><circle cx="62" cy="68" r="8" fill="#2C3E50"/><circle cx="86" cy="68" r="8" fill="#2C3E50"/></svg></div>
-          <div class="logo-text"><span class="logo-name">Dukat Prevoz</span><span class="logo-sub">Tuzla, BiH</span></div>
+          <div class="logo-icon"><svg viewBox="0 0 100 80" width="48" height="48"><rect x="10" y="28" width="68" height="38" rx="8" fill="#F5B042"/><rect x="70" y="36" width="24" height="30" rx="6" fill="#E0A030"/><rect x="12" y="32" width="62" height="26" rx="4" fill="#1E2A3A"/><text x="20" y="54" font-family="'Inter', sans-serif" font-weight="800" font-size="12" fill="#F5B042">MOVEX</text><circle cx="30" cy="68" r="8" fill="#2C3E50"/><circle cx="62" cy="68" r="8" fill="#2C3E50"/><circle cx="86" cy="68" r="8" fill="#2C3E50"/></svg></div>
+          <div class="logo-text"><span class="logo-name">MoveX Prevoz</span><span class="logo-sub">Tuzla, BiH</span></div>
         </a>
-        <p>Pouzdan kombi transport i selidbe u BiH i van granica (po dogovoru). 7/7 dostupni.</p>
+        <p>Pouzdan kombi transport i selidbe u BiH i van granica. ponedjeljak - nedelja dostupni.</p>
       </div>
       <div class="footer-col"><h4>Usluge</h4><ul class="footer-links"><li><a href="#usluge">Selidbe</a></li><li><a href="#usluge">Prevoz namještaja</a></li><li><a href="#usluge">Dostava robe</a></li><li><a href="#usluge">Kombi prevoz BiH</a></li><li><a href="#usluge">Transport van granica</a></li></ul></div>
       <div class="footer-col"><h4>Navigacija</h4><ul class="footer-links"><li><a href="#hero">Početna</a></li><li><a href="#usluge">Usluge</a></li><li><a href="#zasto">O nama</a></li><li><a href="#kako">Kako radimo</a></li><li><a href="#recenzije">Recenzije</a></li><li><a href="#kontakt">Kontakt</a></li></ul></div>
-      <div class="footer-col"><h4>Kontakt</h4><ul class="footer-links"><li><a href="tel:+38762405658">📞 +387 62 405 658</a></li><li><a href="https://wa.me/38762405658">💬 WhatsApp</a></li><li>📍 Tuzla, BiH</li><li>🕐 Pon–Ned: 07–21h</li></ul></div>
+      <div class="footer-col"><h4>Kontakt</h4><ul class="footer-links"><li><a href="tel:+38762405658">📞 +387 62 405 658</a></li><li><a href="https://facebook.com" target="_blank">📘 Facebook</a></li><li>📍 Tuzla, BiH</li><li>🕐 ponedjeljak - nedelja: 07–21h</li></ul></div>
     </div>
-    <div class="footer-bottom"><p class="footer-copy">© 2025 <span>Dukat Prevoz Tuzla</span>. Sva prava zadržana.</p><p class="footer-copy">Prevoz robe Tuzla · Selidbe · Kombi BiH i šire</p></div>
+    <div class="footer-bottom"><p class="footer-copy">© 2025 <span>MoveX Prevoz Tuzla</span>. Sva prava zadržana.</p><p class="footer-copy">Prevoz robe Tuzla · Selidbe · Kombi BiH i šire</p></div>
   </div>
 </footer>
  
-<div class="float-cta"><a href="https://wa.me/38762405658" target="_blank" class="float-btn float-whatsapp"><span>💬</span><span class="float-label">WhatsApp</span></a><a href="tel:+38762405658" class="float-btn float-phone"><span>📞</span><span class="float-label">Pozovite</span></a></div>
+<div class="float-cta"><a href="tel:+38762405658" class="float-btn float-phone"><span>📞</span><span class="float-label">Pozovite</span></a></div>
  
 <script>
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+  
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
   const closeMenu = document.getElementById('close-menu');
-  if (hamburger) hamburger.addEventListener('click', () => { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; });
-  if (closeMenu) closeMenu.addEventListener('click', () => { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; });
-  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }));
-  const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
+  
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  
+  function openMobileMenu() {
+    mobileMenu.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  
+  if (hamburger) {
+    hamburger.addEventListener('click', openMobileMenu);
+  }
+  if (closeMenu) {
+    closeMenu.addEventListener('click', closeMobileMenu);
+  }
+  
+  const mobileLinks = document.querySelectorAll('#mobile-menu a');
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+  });
+  
+  mobileMenu.addEventListener('click', (e) => {
+    if (e.target === mobileMenu) closeMobileMenu();
+  });
+  
+  const observer = new IntersectionObserver((entries) => { 
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); 
+  }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  
   document.getElementById('contact-form')?.addEventListener('submit', function(e) {
     e.preventDefault();
+    const firstName = document.getElementById('first-name').value.trim();
+    const lastName = document.getElementById('last-name').value.trim();
     const phone = document.getElementById('phone').value.trim();
     const msg = document.getElementById('message').value.trim();
-    if (!phone || !msg) { alert("Molimo unesite broj telefona i poruku."); return; }
-    const text = `*Dukat Prevoz upit*%0A📞 Broj: ${encodeURIComponent(phone)}%0A📦 Poruka: ${encodeURIComponent(msg)}%0A---%0AMolim kontakt i ponudu.`;
+    if (!firstName || !lastName || !phone || !msg) {
+      alert("Molimo unesite ime, prezime, broj telefona i poruku.");
+      return;
+    }
+    const fullName = `${firstName} ${lastName}`;
+    const text = `*MoveX Prevoz upit*%0A👤 Ime i prezime: ${encodeURIComponent(fullName)}%0A📞 Broj: ${encodeURIComponent(phone)}%0A📦 Poruka: ${encodeURIComponent(msg)}%0A---%0AMolim kontakt i ponudu.`;
     window.open(`https://wa.me/38762405658?text=${text}`, '_blank');
     const successDiv = document.getElementById('form-success');
     if (successDiv) { successDiv.style.display = 'block'; setTimeout(() => { successDiv.style.display = 'none'; }, 5000); }
     document.getElementById('contact-form').reset();
   });
+  
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const target = document.querySelector(this.getAttribute('href'));
-      if (target) { e.preventDefault(); window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); }
+      if (target) { 
+        e.preventDefault(); 
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+      }
     });
   });
+  
   const scrollHint = document.getElementById('scrollHint');
   if (scrollHint) { scrollHint.addEventListener('click', () => { document.getElementById('usluge')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }); }
 </script>
